@@ -52,6 +52,7 @@ export const usePuck = <
     []
   );
 
+  // TODO reimplement this.
   if (dispatch === defaultAppStore.dispatch) {
     throw new Error(
       "usePuck was used outside of the <Puck> component. The usePuck hook must be rendered within the <Puck> context as children, overrides or plugins as described in https://puckeditor.com/docs/api-reference/functions/use-puck."

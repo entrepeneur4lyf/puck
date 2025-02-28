@@ -25,6 +25,7 @@ import {
   type PermissionsSlice,
 } from "./slices/permissions";
 import { createFieldsStore, type FieldsSlice } from "./slices/fields";
+import { createUsePuckSlice, UsePuckSlice } from "./slices/use-puck";
 
 export const defaultAppState: AppState = {
   data: { content: [], root: {}, zones: {} },
@@ -88,6 +89,7 @@ export type AppStore<
   history: HistorySlice;
   nodes: NodesSlice;
   permissions: PermissionsSlice;
+  usePuck: UsePuckSlice;
 };
 
 const defaultPageFields: Record<string, Field> = {
@@ -116,6 +118,7 @@ export const createAppStore = (initialAppStore?: Partial<AppStore>) =>
       history: createHistorySlice(set, get),
       nodes: createNodesSlice(set, get),
       permissions: createPermissionsSlice(set, get),
+      usePuck: createUsePuckSlice(set, get),
       getComponentConfig: (type?: string) => {
         const { config, selectedItem } = get();
         const rootFields = config.root?.fields || defaultPageFields;
